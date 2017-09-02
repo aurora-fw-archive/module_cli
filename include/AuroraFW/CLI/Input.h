@@ -16,13 +16,16 @@
 ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
 ****************************************************************************/
 
-#include <AuroraFW/CLI/Output.h>
-#include <iostream>
+#ifndef AURORAFW_CLI_INPUT_H
+#define AURORAFW_CLI_INPUT_H
+
+#include <AuroraFW/TLib/_IStream.h>
 
 namespace AuroraFW {
-	namespace CLI
-	{
-		std::ostream Output(std::cout.rdbuf());
-		std::wostream wOutput(std::wcout.rdbuf());
-	}
+    namespace CLI {
+        extern std::istream Input;
+        extern std::wistream wInput;
+    }
 }
+
+#endif // AURORAFW_CLI_INPUT_H

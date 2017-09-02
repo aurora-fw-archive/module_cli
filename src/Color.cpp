@@ -1,8 +1,20 @@
-// ┌─┐┬ ┬┬─┐┌─┐┬─┐┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─ | Powerful, Scalable and Cross Platform Framework
-// ├─┤│ │├┬┘│ │├┬┘├─┤  ├┤ ├┬┘├─┤│││├┤ ││││ │├┬┘├┴┐ | @author Luís Ferreira
-// ┴ ┴└─┘┴└─└─┘┴└─┴ ┴  └  ┴└─┴ ┴┴ ┴└─┘└┴┘└─┘┴└─┴ ┴ | @license GNU Public License v3
-//  Copyright (c) 2016 - Luís Ferreira. All right reserved
-//  More information in: https://github.com/ljmf00/ (Github Page)
+/****************************************************************************
+** ┌─┐┬ ┬┬─┐┌─┐┬─┐┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─
+** ├─┤│ │├┬┘│ │├┬┘├─┤  ├┤ ├┬┘├─┤│││├┤ ││││ │├┬┘├┴┐
+** ┴ ┴└─┘┴└─└─┘┴└─┴ ┴  └  ┴└─┴ ┴┴ ┴└─┘└┴┘└─┘┴└─┴ ┴
+** A Powerful General Purpose Framework
+** More information in: https://aurora-fw.github.io/
+**
+** Copyright (C) 2017 Aurora Framework, All rights reserved.
+**
+** This file is part of the Aurora Framework. This framework is free
+** software; you can redistribute it and/or modify it under the terms of
+** the GNU Lesser General Public License version 3 as published by the
+** Free Software Foundation and appearing in the file LICENSE included in
+** the packaging of this file. Please review the following information to
+** ensure the GNU Lesser General Public License version 3 requirements
+** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
+****************************************************************************/
 
 #include <iostream>
 #include <string>
@@ -10,17 +22,17 @@
 #include <windows.h>
 #endif
 
-#include <Aurora/CLI/Color.h>
-#include <Aurora/CLI/Log.h>
-#include <Aurora/TLib/Target.h>
+#include <AuroraFW/CLI/Color.h>
+#include <AuroraFW/CLI/Log.h>
+#include <AuroraFW/TLib/Target.h>
 
-namespace Aurora
+namespace AuroraFW
 {
-    namespace Shell
+    namespace CLI
     {
         void setColor(Color color, ColorType type)
         {
-            #ifdef AURORA_TARGET_PLATFORM_WINDOWS
+            #ifdef AFW_TARGET_PLATFORM_WINDOWS
 
                 // TODO: Needs to be tested!
                 unsigned char colr_id_tmp;
@@ -52,7 +64,7 @@ namespace Aurora
                     colr_id_tmp = (unsigned)(char) color;
                 }
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colr_id_tmp);
-            #elif defined(AURORA_TARGET_UNIX)
+            #elif defined(AFW_TARGET_UNIX)
             int colr_tmp = 0;
             switch(color)
             {
@@ -99,9 +111,9 @@ namespace Aurora
         }
         void resetColor()
         {
-            #ifdef AURORA_TARGET_WINDOWS
+            #ifdef AFW_TARGET_WINDOWS
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_RED | BACKGROUND_GREEN | 0);
-            #elif defined(AURORA_TARGET_UNIX)
+            #elif defined(AFW_TARGET_UNIX)
             Output << "\e[0m";
             #endif
 

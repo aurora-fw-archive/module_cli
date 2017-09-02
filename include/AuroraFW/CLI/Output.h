@@ -16,13 +16,28 @@
 ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
 ****************************************************************************/
 
-#include <AuroraFW/CLI/Output.h>
-#include <iostream>
+#ifndef INCLUDE_H_AFW_SHELL_OUTPUT
+#define INCLUDE_H_AFW_SHELL_OUTPUT
+
+#include <AuroraFW/TLib/_OStream.h>
 
 namespace AuroraFW {
-	namespace CLI
-	{
-		std::ostream Output(std::cout.rdbuf());
-		std::wostream wOutput(std::wcout.rdbuf());
-	}
+    namespace CLI {
+        extern std::ostream Output;
+        extern std::wostream wOutput;
+
+        template<typename _CharT, typename _Traits>
+        inline std::basic_ostream<_CharT, _Traits>& EndLine(std::basic_ostream<_CharT, _Traits>& __os)
+        {
+            return flush(__os.put(__os.widen('\n')));
+        }
+
+        template<typename _CharT, typename _Traits>
+        inline std::basic_ostream<_CharT, _Traits>& Flush(std::basic_ostream<_CharT, _Traits>& __os)
+        {
+            return __os.flush();
+        }
+    }
 }
+
+#endif // INCLUDE_H_AFW_SHELL_OUTPUT

@@ -16,13 +16,42 @@
 ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
 ****************************************************************************/
 
-#include <AuroraFW/CLI/Output.h>
-#include <iostream>
+#ifndef AURORAFW_CLI_COLOR_H
+#define AURORAFW_CLI_COLOR_H
 
-namespace AuroraFW {
+#include <AuroraFW/Global.h>
+
+namespace AuroraFW
+{
 	namespace CLI
 	{
-		std::ostream Output(std::cout.rdbuf());
-		std::wostream wOutput(std::wcout.rdbuf());
+		enum class ColorType
+		{
+			Background,
+			Foreground
+		};
+
+		enum class Color : unsigned int {
+			Black,
+			Blue,
+			Green,
+			Cyan,
+			Red,
+			Magenta,
+			Yellow,
+			LightGrey,
+			DarkGrey,
+			LightBlue,
+			LightGreen,
+			LightCyan,
+			LightRed,
+			LightMagenta,
+			LightYellow,
+			White
+		};
+		extern ArVoid_t setColor(Color color, ColorType type = ColorType::Foreground);
+		extern ArVoid_t resetColor();
 	}
 }
+
+#endif // AURORAFW_CLI_COLOR_H

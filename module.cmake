@@ -1,13 +1,29 @@
+# ┌─┐┬ ┬┬─┐┌─┐┬─┐┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─
+# ├─┤│ │├┬┘│ │├┬┘├─┤  ├┤ ├┬┘├─┤│││├┤ ││││ │├┬┘├┴┐
+# ┴ ┴└─┘┴└─└─┘┴└─┴ ┴  └  ┴└─┴ ┴┴ ┴└─┘└┴┘└─┘┴└─┴ ┴
+# A Powerful General Purpose Framework
+# More information in: https://aurora-fw.github.io/
+#
+# Copyright (C) 2017 Aurora Framework, All rights reserved.
+#
+# This file is part of the Aurora Framework. This framework is free
+# software; you can redistribute it and/or modify it under the terms of
+# the GNU Lesser General Public License version 3 as published by the
+# Free Software Foundation and appearing in the file LICENSE included in
+# the packaging of this file. Please review the following information to
+# ensure the GNU Lesser General Public License version 3 requirements
+# will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
+
 message(STATUS "Loading cli module...")
 
 if (NOT CONFIGURED_ONCE)
-	set(MODULE_CLI_SOURCE_DIR ${MODULE_CLI_DIR}/src)
+	set(AURORAFW_MODULE_CLI_SOURCE_DIR ${AURORAFW_MODULE_CLI_DIR}/src)
 endif()
 
-include_directories(${MODULE_CLI_DIR}/include)
+include_directories(${AURORAFW_MODULE_CLI_DIR}/include)
 
-add_library (aurorafw-cli SHARED ${MODULE_CLI_SOURCE_DIR}/Color.cpp
-                               ${MODULE_CLI_SOURCE_DIR}/Input.cpp
-						   	   ${MODULE_CLI_SOURCE_DIR}/Output.cpp)
+add_library (aurorafw-cli SHARED ${AURORAFW_MODULE_CLI_SOURCE_DIR}/Color.cpp
+                               ${AURORAFW_MODULE_CLI_SOURCE_DIR}/Input.cpp
+						   	   ${AURORAFW_MODULE_CLI_SOURCE_DIR}/Output.cpp)
 
 set_target_properties(aurorafw-cli PROPERTIES OUTPUT_NAME aurorafw-cli)

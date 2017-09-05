@@ -30,7 +30,7 @@ namespace AuroraFW
 {
     namespace CLI
     {
-        void setColor(Color color, ColorType type)
+        void setColor(const Color& color, const ColorType& type)
         {
             #ifdef AFW_TARGET_PLATFORM_WINDOWS
 
@@ -64,7 +64,7 @@ namespace AuroraFW
                     colr_id_tmp = (unsigned)(char) color;
                 }
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colr_id_tmp);
-            #elif defined(AFW_TARGET_UNIX)
+            #elif defined(AFW_TARGET_ENVIRONMENT_UNIX)
             int colr_tmp = 0;
             switch(color)
             {
@@ -89,22 +89,22 @@ namespace AuroraFW
             {
                 if(std::to_string(colr_tmp).length()==2)
                 {
-                    Output << "\e[4" << std::to_string(colr_tmp)[1] << "m";
+                    Output << "\033[4" << std::to_string(colr_tmp)[1] << "m";
                 }
                 else
                 {
-                    Output << "\e[4" << colr_tmp << "m";
+                    Output << "\033[4" << colr_tmp << "m";
                 }
             }
             else if(type == ColorType::Foreground)
             {
                 if(std::to_string(colr_tmp).length()==2)
                 {
-                    std::cout << "\e[1;3" << std::to_string(colr_tmp)[1] << "m";
+                    std::cout << "\033[1;3" << std::to_string(colr_tmp)[1] << "m";
                 }
                 else
                 {
-                    std::cout << "\e[3" << colr_tmp << "m";
+                    std::cout << "\033[3" << colr_tmp << "m";
                 }
             }
             #endif
@@ -114,7 +114,7 @@ namespace AuroraFW
             #ifdef AFW_TARGET_WINDOWS
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_RED | BACKGROUND_GREEN | 0);
             #elif defined(AFW_TARGET_UNIX)
-            Output << "\e[0m";
+            Output << "\033[0m";
             #endif
 
         }

@@ -21,10 +21,8 @@
 
 #include <AuroraFW/Global.h>
 
-namespace AuroraFW
-{
-	namespace CLI
-	{
+namespace AuroraFW {
+	namespace CLI {
 		enum class ColorType
 		{
 			Background,

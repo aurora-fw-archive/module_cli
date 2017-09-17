@@ -20,8 +20,7 @@
 #include <iostream>
 
 namespace AuroraFW {
-	namespace CLI
-	{
+	namespace CLI {
 		std::istream Input(std::cin.rdbuf());
 		std::wistream wInput(std::wcin.rdbuf());
 	}

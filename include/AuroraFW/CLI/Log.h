@@ -24,8 +24,7 @@
 #include <AuroraFW/Core/Debug.h>
 
 namespace AuroraFW {
-    namespace CLI
-	{
+    namespace CLI {
 		enum MessageStatus
 		{
 			Error,
@@ -36,20 +35,20 @@ namespace AuroraFW {
 		};
 
         template <typename T>
-		void __Log(T t)
+		void __Log(const T& t)
 		{
 			Output << t;
 		}
 
         template <typename T, typename... R>
-		void __Log(T t, R... args)
+		void __Log(const T& t, const R&... args)
 		{
 			Output << t;
 			__Log(args...);
 		}
 
         template <typename T, typename... R>
-		void Log (T t, R... args)
+		void Log (const T& t, const R&... args)
 		{
 			// TODO: Windows ANSI integration
 			//       Needs to be tested on Windows and Apple platforms
@@ -105,7 +104,8 @@ namespace AuroraFW {
 				}
 				else return;
 			}
-            else {
+			else
+			{
                 __Log(t, args...);
                 Output << EndLine;
                 return;

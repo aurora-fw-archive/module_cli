@@ -20,8 +20,7 @@
 #include <iostream>
 
 namespace AuroraFW {
-	namespace CLI
-	{
+	namespace CLI {
 		std::ostream Output(std::cout.rdbuf());
 		std::wostream wOutput(std::wcout.rdbuf());
 	}

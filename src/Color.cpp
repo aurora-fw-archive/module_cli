@@ -26,10 +26,8 @@
 #include <AuroraFW/CLI/Log.h>
 #include <AuroraFW/TLib/Target.h>
 
-namespace AuroraFW
-{
-    namespace CLI
-    {
+namespace AuroraFW {
+    namespace CLI {
         void setColor(const Color& color, const ColorType& type)
         {
             #ifdef AFW_TARGET_PLATFORM_WINDOWS

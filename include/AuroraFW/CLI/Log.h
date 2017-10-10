@@ -19,12 +19,12 @@
 #ifndef AURORAFW_CLI_LOG_H
 #define AURORAFW_CLI_LOG_H
 
-#include <AuroraFW/TLib/Target/Environment.h>
+#include <AuroraFW/STDL/Target/Environment.h>
 #include <AuroraFW/CLI/Output.h>
 #include <AuroraFW/Core/Debug.h>
 
 namespace AuroraFW {
-    namespace CLI {
+	namespace CLI {
 		enum MessageStatus
 		{
 			Error,
@@ -34,20 +34,20 @@ namespace AuroraFW {
 			Debug
 		};
 
-        template <typename T>
+		template <typename T>
 		void __Log(const T& t)
 		{
 			Output << t;
 		}
 
-        template <typename T, typename... R>
+		template <typename T, typename... R>
 		void __Log(const T& t, const R&... args)
 		{
 			Output << t;
 			__Log(args...);
 		}
 
-        template <typename T, typename... R>
+		template <typename T, typename... R>
 		void Log (const T& t, const R&... args)
 		{
 			// TODO: Windows ANSI integration
@@ -84,32 +84,12 @@ namespace AuroraFW {
 				Output << "[INFORMATION] ";
 				#endif
 			}
-			else if (t == AuroraFW::CLI::Debug)
-			{
-				if(AuroraFW::Debug::Status)
-				{
-					#if AFW_DEBUG_LOG
-
-					#else
-						if(Debug::isVerbose == false)
-						#ifdef AFW_TARGET_ENVIRONMENT_UNIX
-							Output << "\033[0m\033[1m[\033[1;36mDEBUG\033[0;1m] \033[0m";
-						#else
-							Output << "[DEBUG] ";
-						#endif
-						__Log(args...);
-						Output << EndLine;
-					#endif
-					return;
-				}
-				else return;
-			}
 			else
 			{
-                __Log(t, args...);
-                Output << EndLine;
-                return;
-            }
+				__Log(t, args...);
+				Output << EndLine;
+				return;
+			}
 			__Log(args...);
 			Output << EndLine;
 		}

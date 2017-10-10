@@ -19,7 +19,7 @@
 #ifndef INCLUDE_H_AFW_SHELL_OUTPUT
 #define INCLUDE_H_AFW_SHELL_OUTPUT
 
-#include <AuroraFW/TLib/_OStream.h>
+#include <AuroraFW/STDL/STL/OStream.h>
 
 namespace AuroraFW {
     namespace CLI {

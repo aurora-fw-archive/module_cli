@@ -19,7 +19,7 @@
 #ifndef AURORAFW_CLI_INPUT_H
 #define AURORAFW_CLI_INPUT_H
 
-#include <AuroraFW/TLib/_IStream.h>
+#include <AuroraFW/STDL/STL/IStream.h>
 
 namespace AuroraFW {
     namespace CLI {

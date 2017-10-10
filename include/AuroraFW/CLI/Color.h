@@ -47,8 +47,8 @@ namespace AuroraFW {
 			LightYellow,
 			White
 		};
-		extern ArVoid_t setColor(const Color& color, const ColorType& type = ColorType::Foreground);
-		extern ArVoid_t resetColor();
+		extern afwvoid_t setColor(const Color& color, const ColorType& type = ColorType::Foreground);
+		extern afwvoid_t resetColor();
 	}
 }
 

@@ -23,6 +23,24 @@
 #include <AuroraFW/CLI/Output.h>
 #include <AuroraFW/Core/Debug.h>
 
+#ifndef AFW_LOGMESSAGE
+	#ifdef AFW__NDEBUG
+		#define AFW_LOGMESSAGE 0
+	#else
+		#define AFW_LOGMESSAGE 1
+	#endif
+#endif
+
+#if AFW_LOGMESSAGE
+	#define AFW_LOGMESSAGE_FILE __FILE__
+	#define AFW_LOGMESSAGE_LINE __LINE__
+	#define AFW_LOGMESSAGE_FUNC AFW_FUNC_INFO
+#else
+	#define AFW_LOGMESSAGE_FILE AFW_NULLPTR
+	#define AFW_LOGMESSAGE_LINE 0
+	#define AFW_LOGMESSAGE_FUNC AFW_NULLPTR
+#endif
+
 namespace AuroraFW {
 	namespace CLI {
 		enum MessageStatus
@@ -93,7 +111,35 @@ namespace AuroraFW {
 			__Log(args...);
 			Output << EndLine;
 		}
+
+		class AFW_EXPORT Logger {
+		public:
+			//TODO: Implement logger
+		};
 	}
 }
+
+#define afwNoDebug while(false) AuroraFW::CLI::Logger().noDebug
+
+#ifdef AFW__LOGGER_NDEBUG
+	#define afwDebug afwNoDebug
+#else
+	#define afwDebug AuroraFW::CLI::Logger(AFW_LOGMESSAGE_FILE, AFW_LOGMESSAGE_LINE, AFW_LOGMESSAGE_FUNC).debug
+#endif
+
+#ifdef AFW__LOGGER_NINFO
+	#define afwInfo afwNoDebug
+#else
+	#define afwInfo AuroraFW::CLI::Logger(AFW_LOGMESSAGE_FILE, AFW_LOGMESSAGE_LINE, AFW_LOGMESSAGE_FUNC).info
+#endif
+
+#ifdef AFW__LOGGER_NWARN
+	#define afwWarning afwNoDebug
+#else
+	#define afwWarning AuroraFW::CLI::Logger(AFW_LOGMESSAGE_FILE, AFW_LOGMESSAGE_LINE, AFW_LOGMESSAGE_FUNC).warning
+#endif
+
+#define afwCritical AuroraFW::CLI::Logger(AFW_LOGMESSAGE_FILE, AFW_LOGMESSAGE_LINE, AFW_LOGMESSAGE_FUNC).critical
+#define afwFatal AuroraFW::CLI::Logger(AFW_LOGMESSAGE_FILE, AFW_LOGMESSAGE_LINE, AFW_LOGMESSAGE_FUNC).fatal
 
 #endif // AURORAFW_CLI_LOG_H

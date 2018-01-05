@@ -108,7 +108,7 @@ namespace AuroraFW {
 		}
 		void resetColor()
 		{
-			#ifdef AFW_TARGET_WINDOWS
+			#ifdef AFW_TARGET_PLATFORM_WINDOWS
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | BACKGROUND_RED | BACKGROUND_GREEN | 0);
 			#elif defined(AFW_TARGET_UNIX)
 			Output << "\033[0m";

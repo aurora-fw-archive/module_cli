@@ -19,13 +19,14 @@
 #ifndef AURORAFW_CLI_INPUT_H
 #define AURORAFW_CLI_INPUT_H
 
+#include <AuroraFW/Global.h>
 #include <AuroraFW/STDL/STL/IStream.h>
 
 namespace AuroraFW {
-    namespace CLI {
-        extern std::istream Input;
-        extern std::wistream wInput;
-    }
+	namespace CLI {
+		AFW_EXPORT extern std::istream Input;
+		AFW_EXPORT extern std::wistream wInput;
+	}
 }
 
 #endif // AURORAFW_CLI_INPUT_H

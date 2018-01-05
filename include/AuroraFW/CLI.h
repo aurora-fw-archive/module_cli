@@ -16,29 +16,12 @@
 ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
 ****************************************************************************/
 
-#ifndef INCLUDE_H_AFW_SHELL_OUTPUT
-#define INCLUDE_H_AFW_SHELL_OUTPUT
+#ifndef AURORAFW_CLI_H
+#define AURORAFW_CLI_H
 
-#include <AuroraFW/Global.h>
-#include <AuroraFW/STDL/STL/OStream.h>
+#include <AuroraFW/CLI/Log.h>
+#include <AuroraFW/CLI/Color.h>
+#include <AuroraFW/CLI/Output.h>
+#include <AuroraFW/CLI/Input.h>
 
-namespace AuroraFW {
-	namespace CLI {
-		AFW_EXPORT extern std::ostream Output;
-		AFW_EXPORT extern std::wostream wOutput;
-
-		template<typename _CharT, typename _Traits>
-		inline std::basic_ostream<_CharT, _Traits>& EndLine(std::basic_ostream<_CharT, _Traits>& __os)
-		{
-			return flush(__os.put(__os.widen('\n')));
-		}
-
-		template<typename _CharT, typename _Traits>
-		inline std::basic_ostream<_CharT, _Traits>& Flush(std::basic_ostream<_CharT, _Traits>& __os)
-		{
-			return __os.flush();
-		}
-	}
-}
-
-#endif // INCLUDE_H_AFW_SHELL_OUTPUT
+#endif // AURORAFW_CLI_H

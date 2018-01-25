@@ -24,7 +24,7 @@
 
 #include <AuroraFW/CLI/Color.h>
 #include <AuroraFW/CLI/Log.h>
-#include <AuroraFW/STDL/Target.h>
+#include <AuroraFW/CoreLib/Target/System.h>
 
 namespace AuroraFW {
 	namespace CLI {

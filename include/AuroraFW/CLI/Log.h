@@ -19,7 +19,7 @@
 #ifndef AURORAFW_CLI_LOG_H
 #define AURORAFW_CLI_LOG_H
 
-#include <AuroraFW/STDL/Target/Environment.h>
+#include <AuroraFW/CoreLib/Target/System.h>
 #include <AuroraFW/CLI/Output.h>
 #include <AuroraFW/Core/Debug.h>
 

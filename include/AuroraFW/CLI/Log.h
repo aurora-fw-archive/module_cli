@@ -21,7 +21,7 @@
 
 #include <AuroraFW/CoreLib/Target/System.h>
 #include <AuroraFW/CLI/Output.h>
-#include <AuroraFW/Core/Debug.h>
+#include <AuroraFW/Core/DebugManager.h>
 
 #ifndef AFW_LOGMESSAGE
 	#ifdef AFW__NDEBUG

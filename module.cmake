@@ -25,6 +25,6 @@ include_directories(${AURORAFW_MODULE_CLI_DIR}/include)
 add_library (aurorafw-cli SHARED ${AURORAFW_MODULE_CLI_SOURCE_DIR}/Color.cpp
                                ${AURORAFW_MODULE_CLI_SOURCE_DIR}/Input.cpp
 								  ${AURORAFW_MODULE_CLI_SOURCE_DIR}/Output.cpp)
-aurora_add_library_target(aurorafw-cli)
+aurora_add_library_target(aurorafw-cli SHARED)
 
 target_link_libraries(aurorafw-cli aurorafw-core)

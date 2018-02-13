@@ -20,12 +20,18 @@
 #define AURORAFW_CLI_INPUT_H
 
 #include <AuroraFW/Global.h>
+#if(AFW_TARGET_PRAGMA_ONCE_SUPPORT)
+	#pragma once
+#endif
+
+#include <AuroraFW/Internal/Config.h>
+
 #include <AuroraFW/STDL/STL/IStream.h>
 
 namespace AuroraFW {
 	namespace CLI {
-		AFW_EXPORT extern std::istream Input;
-		AFW_EXPORT extern std::wistream wInput;
+		AFW_API extern std::istream Input;
+		AFW_API extern std::wistream wInput;
 	}
 }
 

@@ -112,7 +112,7 @@ namespace AuroraFW {
 			Output << EndLine;
 		}
 
-		class AFW_EXPORT Logger {
+		class AFW_API Logger {
 		public:
 			//TODO: Implement logger
 		};

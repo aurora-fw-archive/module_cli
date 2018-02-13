@@ -20,12 +20,18 @@
 #define INCLUDE_H_AFW_SHELL_OUTPUT
 
 #include <AuroraFW/Global.h>
+#if(AFW_TARGET_PRAGMA_ONCE_SUPPORT)
+	#pragma once
+#endif
+
+#include <AuroraFW/Internal/Config.h>
+
 #include <AuroraFW/STDL/STL/OStream.h>
 
 namespace AuroraFW {
 	namespace CLI {
-		AFW_EXPORT extern std::ostream Output;
-		AFW_EXPORT extern std::wostream wOutput;
+		AFW_API extern std::ostream Output;
+		AFW_API extern std::wostream wOutput;
 
 		template<typename _CharT, typename _Traits>
 		inline std::basic_ostream<_CharT, _Traits>& EndLine(std::basic_ostream<_CharT, _Traits>& __os)

@@ -20,6 +20,11 @@
 #define AURORAFW_CLI_COLOR_H
 
 #include <AuroraFW/Global.h>
+#if(AFW_TARGET_PRAGMA_ONCE_SUPPORT)
+	#pragma once
+#endif
+
+#include <AuroraFW/Internal/Config.h>
 
 namespace AuroraFW {
 	namespace CLI {
@@ -47,8 +52,8 @@ namespace AuroraFW {
 			LightYellow,
 			White
 		};
-		AFW_EXPORT extern afwvoid_t setColor(const Color& color, const ColorType& type = ColorType::Foreground);
-		AFW_EXPORT extern afwvoid_t resetColor();
+		AFW_API extern void setColor(const Color& color, const ColorType& type = ColorType::Foreground);
+		AFW_API extern void resetColor();
 	}
 }
 
